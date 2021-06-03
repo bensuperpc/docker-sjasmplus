@@ -19,18 +19,6 @@ jobs:
   image:
     name: docker-sjasmplus
     runs-on: ubuntu-20.04
-    strategy:
-      # max-parallel: 8
-      fail-fast: false
-      matrix:
-        arch_type:
-          - "linux/amd64"
-          - "linux/386"
-          - "linux/arm64"
-          - "linux/ppc64le"
-          - "linux/s390x"
-          - "linux/arm/v7"
-          - "linux/arm/v6"
     steps:
       - name: "📥 Checkout Code"
         uses: actions/checkout@v2.3.4
@@ -42,7 +30,7 @@ jobs:
       - name: "🛠️ Build and 📤 Upload to hub.docker.com"
         run: |
             docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASS }}
-            make ${{ matrix.arch_type }} 
+            make all
       - name: "🧹 Clean"
         run: make clean
       
