@@ -16,7 +16,7 @@ LABEL mantainer="Bensuperpc <bensuperpc@gmail.com>"
 ARG VERSION="1.0.0"
 ENV VERSION=$VERSION
 
-RUN apk add libgcc libstdc++ --no-cache make
+RUN apk add libgcc libstdc++ make --no-cache make
 
 COPY --from=builder /sjasmplus/build /usr/local
 
