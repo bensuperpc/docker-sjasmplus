@@ -29,7 +29,7 @@ case "$1" in
         shift
         ;;&
     -h)
-        echo "Usage: ${0##*/} [-version latest sjasmplus -o hello hello.c]"
+        echo "Usage: ${0##*/} [-version latest sjasmplus hello.asm --raw=hello.rom]"
         exit 1
         ;;
 esac
